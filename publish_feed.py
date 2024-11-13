@@ -6,11 +6,11 @@ from atproto import Client, models
 
 # YOUR bluesky handle
 # Ex: user.bsky.social
-HANDLE: str = ''
+HANDLE: str = 'py-comments.bsky.social'
 
 # YOUR bluesky password, or preferably an App Password (found in your client settings)
 # Ex: abcd-1234-efgh-5678
-PASSWORD: str = ''
+PASSWORD: str = '63852364'
 
 # The hostname of the server where feed server will be hosted
 # Ex: feed.bsky.dev
@@ -18,16 +18,16 @@ HOSTNAME: str = ''
 
 # A short name for the record that will show in urls
 # Lowercase with no spaces.
-# Ex: whats-hot
-RECORD_NAME: str = ''
+# Ex: bradesco-feed
+RECORD_NAME: str = 'bradesco-feed'
 
 # A display name for your feed
-# Ex: What's Hot
-DISPLAY_NAME: str = ''
+# Ex: Feed Bradesco
+DISPLAY_NAME: str = 'Feed Bradesco'
 
 # (Optional) A description of your feed
-# Ex: Top trending content from the whole network
-DESCRIPTION: str = 'powered by The AT Protocol SDK for Python'
+# Ex: Conteúdo relacionado ao Banco Bradesco
+DESCRIPTION: str = 'Conteúdo relacionado ao Banco Bradesco'
 
 # (Optional) The path to an image to be used as your feed's avatar
 # Ex: ./path/to/avatar.jpeg
@@ -36,11 +36,9 @@ AVATAR_PATH: str = ''
 # (Optional). Only use this if you want a service did different from did:web
 SERVICE_DID: str = ''
 
-
 # -------------------------------------
 # NO NEED TO TOUCH ANYTHING BELOW HERE
 # -------------------------------------
-
 
 def main():
     client = Client()
@@ -70,8 +68,9 @@ def main():
     ))
 
     print('Successfully published!')
-    print('Feed URI (put in "WHATS_ALF_URI" env var):', response.uri)
+    print('Feed URI (put in "WHATS_BRADESCO_URI" env var):', response.uri)
 
 
 if __name__ == '__main__':
     main()
+

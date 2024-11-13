@@ -1,5 +1,6 @@
-from . import whats_alf
+
+from . import whats_bradesco
 
 algos = {
-    whats_alf.uri: whats_alf.handler
+    whats_bradesco.uri: whats_bradesco.handler
 }

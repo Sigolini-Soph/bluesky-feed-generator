@@ -1,16 +1,15 @@
 from datetime import datetime
 from typing import Optional
-
 from server import config
 from server.database import Post
 
-uri = config.WHATS_ALF_URI
+uri = config.WHATS_BRADESCO_URI
 CURSOR_EOF = 'eof'
 
-
 def handler(cursor: Optional[str], limit: int) -> dict:
+    # Seleciona posts mencionando o Bradesco, ordenando pelo mais recente
     posts = Post.select().order_by(Post.cid.desc()).order_by(Post.indexed_at.desc()).limit(limit)
-
+    
     if cursor:
         if cursor == CURSOR_EOF:
             return {
@@ -19,7 +18,7 @@ def handler(cursor: Optional[str], limit: int) -> dict:
             }
         cursor_parts = cursor.split('::')
         if len(cursor_parts) != 2:
-            raise ValueError('Malformed cursor')
+            raise ValueError('Cursor malformado')
 
         indexed_at, cid = cursor_parts
         indexed_at = datetime.fromtimestamp(int(indexed_at) / 1000)
